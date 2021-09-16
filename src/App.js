@@ -22,19 +22,19 @@ function App() {
   // C'est comme le lifecycle event 'ComponentDidMount'
 
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
+    const res = await fetch('http://localhost:8080/todos')
     const data = await res.json()
     return data
   }
 
   const fetchTask = async(id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const res = await fetch(`http://localhost:8080/todos/${id}`)
     const data = await res.json()
     return data
   }
 
   const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks',
+    const res = await fetch('http://localhost:8080/todos',
     {
       method: 'POST',
       headers: {
@@ -52,7 +52,7 @@ function App() {
   }
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:8080/todos/${id}`, {
       method: 'DELETE'
     })
     setTasks(tasks.filter((task) => task.id !== id))
@@ -63,7 +63,7 @@ function App() {
     const updTask = await {...taskToToggle, 
       reminder: !taskToToggle.reminder}
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`,
+    const res = await fetch(`http://localhost:8080/todos/${id}`,
     {
       method: 'PUT',
       headers: {
