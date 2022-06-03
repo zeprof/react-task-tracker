@@ -18,7 +18,7 @@ function App() {
       setTasks(tasksFromServer)
     }
     getTasks()
-  }, [])  // Ajout de dependency array pour prevenir le 'useEffect' a chaquer 'render()'
+  }, [])  // Ajout de dependency array pour prevenir le 'useEffect' a chaque 'render()'
   // C'est comme le lifecycle event 'ComponentDidMount'
 
   const fetchTasks = async () => {
